@@ -11,5 +11,8 @@ print("")
 
 
 nutzereingabe = ""
-nutzereingabe = input("Ihre Frage oder Antwort: ")
-print(nutzereingabe)
+while nutzereingabe != "bye":
+    nutzereingabe = ""
+    nutzereingabe = input("Ihre Frage oder Antwort: ")
+    print(nutzereingabe)
+print("Ein schönen Tag.")
