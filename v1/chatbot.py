@@ -34,7 +34,7 @@ while nutzereingabe != "bye":
         if einzelwoerter in reaktionen:
             print(reaktionen[einzelwoerter])
             intelligentantworten = True
-    if intelligentantworten == False:
+    if not intelligentantworten:
         print(random.choice(zufallantworten))
 
 print("Einen schönen Tag.")
