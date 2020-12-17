@@ -6,30 +6,35 @@
 
 import random
 
-# zufallantworten = ["Oh wirklich...", "Interessant", "Das kann man so sehen.", "Ich verstehe..."]
+
+# zufälligen Antworten
+zufallantworten = ["Oh wirklich...", "Interessant", "Das kann man so sehen.", "Ich verstehe..."]
 # Stopwörter
-reaktionen = {"hallo": "Aber hallo",  
-               "geht": "was verestehst Du darunter?",
-               "schmeckt": "Ich habe keine Geschmacksinn"
-            }
+reaktionen = {"hallo": "Aber hallo",
+              "geht": "was verestehst Du darunter?",
+              "schmeckt": "Ich habe keine Geschmacksinn"}
 
-
+# Ausgabe Head..
 print("Willkommen beim chatbot (v1)")
 print("Woruber wollensir sprechen?")
 print("Zum Beenden geben Sie bye ein...")
 print("")
 
-
+# main
 nutzereingabe = ""
 while nutzereingabe != "bye":
     nutzereingabe = ""
-    nutzereingabe = input("Ihre Frage oder Antwort: ")
+    while nutzereingabe == "":
+        nutzereingabe = input("Ihre Frage oder Antwort: ")
     nutzereingabe = nutzereingabe.lower()
     nutzerewoerter = nutzereingabe.split()
+
+    intelligentantworten = False
     for einzelwoerter in nutzerewoerter:
         if einzelwoerter in reaktionen:
             print(reaktionen[einzelwoerter])
-        
+            intelligentantworten = True
+    if intelligentantworten == False:
+        print(random.choice(zufallantworten))
 
-   # print(random.choice(zufallantworten))
 print("Einen schönen Tag.")
