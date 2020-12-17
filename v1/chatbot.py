@@ -16,7 +16,7 @@ reaktionen = {"hallo": "Aber hallo",
 
 # Ausgabe Head..
 print("Willkommen beim chatbot (v1)")
-print("Woruber wollensir sprechen?")
+print("Woruber wollen sie sprechen?")
 print("Zum Beenden geben Sie bye ein...")
 print("")
 
