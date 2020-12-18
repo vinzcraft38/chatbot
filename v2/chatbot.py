@@ -7,34 +7,62 @@
 import random
 
 
-# zufälligen Antworten
-zufallantworten = ["Oh wirklich...", "Interessant", "Das kann man so sehen.", "Ich verstehe..."]
-# Stopwörter
-reaktionen = {"hallo": "Aber hallo",
-              "geht": "was verestehst Du darunter?",
-              "schmeckt": "Ich habe keine Geschmacksinn"}
+class Chatbot:
 
-# Ausgabe Head..
-print("Willkommen beim chatbot (v1)")
-print("Woruber wollen sie sprechen?")
-print("Zum Beenden geben Sie bye ein...")
-print("")
+    def __init__(self, reaktionen, zufallsantworten):
+        self.__reaktionen = dict(reaktionen)
+        self.__zufallsantworten = list(zufallsantworten)
 
-# main
-nutzereingabe = ""
-while nutzereingabe != "bye":
+    def __del__(self):
+        pass
+
+    def set_Message(self, message):
+        self.__message = str(message)
+
+    def get_response(self):
+        self.__message = self.__message.lower()
+        self.__words = self.__message.split()
+        self.__intelligentanswers = False
+
+        for word in self.__words:
+            if word in self.__reaktionen:
+                self.__intelligentanswers = True
+                self.__response = self.__reaktionen[word]
+        if not self.__intelligentanswers:
+            self.__response = random.choice(self.__zufallsantworten)
+
+        return self.__response
+
+
+def main():
+
+    # Listen
+    zufallsantworten = ["Oh wirklich...", "Interessant", "Das kann man so sehen.", "Ich verstehe..."]
+    reaktionen = {"hallo": "aber hallo",
+                  "geht": "Was verstehst Du darunter",
+                  "schmeckt": "Ich habe keinen Geschmackssinn"}
+
+    # Ausgabe Head..
+    print("Willkommen beim ChatBot (v1)")
+    print("Worüber wollen Sie sprechen")
+    print("Zum Beenden geben Sie bye ein...")
+    print("")
+
+    # Chatbot-Objekt
+    bot = Chatbot(reaktionen, zufallsantworten)
+
+    # Logik
     nutzereingabe = ""
-    while nutzereingabe == "":
-        nutzereingabe = input("Ihre Frage oder Antwort: ")
-    nutzereingabe = nutzereingabe.lower()
-    nutzerewoerter = nutzereingabe.split()
+    while nutzereingabe != "bye":
+        nutzereingabe = ""
+        while nutzereingabe == "":
+            nutzereingabe = input("Ihre Frage oder Antwort: ")
+        bot.set_Message(nutzereingabe)
+        print(bot.get_response())
 
-    intelligentantworten = False
-    for einzelwoerter in nutzerewoerter:
-        if einzelwoerter in reaktionen:
-            print(reaktionen[einzelwoerter])
-            intelligentantworten = True
-    if not intelligentantworten:
-        print(random.choice(zufallantworten))
+    # Ausgabe Verabschiedung
+    print("Bis zum nächsten Mal.")
 
-print("Einen schönen Tag.")
+
+if __name__ == "__main__":
+    main()
