@@ -43,7 +43,7 @@ def main():
                   "schmeckt": "Ich habe keinen Geschmackssinn"}
 
     # Ausgabe Head..
-    print("Willkommen beim ChatBot (v1)")
+    print("Willkommen beim ChatBot (v2)")
     print("Worüber wollen Sie sprechen")
     print("Zum Beenden geben Sie bye ein...")
     print("")
