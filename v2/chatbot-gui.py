@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-from PyQt5 import *
-=======
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
@@ -79,4 +76,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
     sys.exit(app.exec_())
->>>>>>> b73b95c88e5085a6edcaec4d5e5951d9c218d233
+
