@@ -57,6 +57,13 @@ class MainWindow(QMainWindow):
             message.setText('Keine Eingabe!')
             message.setInformativeText('Ohne Frage kann ich nicht antworten.')
             message.exec_()
+        elif self.chatbot_input.text() == "bye":
+            message = QMessageBox()
+            message.setIcon(QMessageBox.Warning)
+            message.setText('Tchuss!')
+            message.setInformativeText('Bis bald!')
+            message.exec_()
+            app.quit()
         else:
             bot = Chatbot(reaktionen, zufallsantworten)
             bot.set_Message(self.chatbot_input.text())
