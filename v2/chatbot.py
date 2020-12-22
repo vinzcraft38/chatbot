@@ -50,6 +50,7 @@ def main():
 
     # Chatbot-Objekt
     bot = Chatbot(reaktionen, zufallsantworten)
+    # insider = vars(bot)
 
     # Logik
     nutzereingabe = ""
@@ -59,6 +60,7 @@ def main():
             nutzereingabe = input("Ihre Frage oder Antwort: ")
         bot.set_Message(nutzereingabe)
         print(bot.get_response())
+        # print(insider)
 
     # Ausgabe Verabschiedung
     print("Bis zum nächsten Mal.")
