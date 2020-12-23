@@ -9,8 +9,6 @@ app.config['SECRET_KEY'] = 'Pa$$w0rd'
 
 
 @app.route('/', methods=('GET', 'POST'))
-
-
 def index():
 
     chatbot_label = "Hallo. Worüber wollen Sie sprechen?"
@@ -20,7 +18,7 @@ def index():
     reaktionen = {"hallo": "aber hallo",
                 "geht": "Was verstehst Du darunter",
                 "schmeckt": "Ich habe keinen Geschmackssinn"}
-    
+
     if request.method == 'POST':
         chatbot_input = request.form['chatbot_input']
         if not chatbot_input:
